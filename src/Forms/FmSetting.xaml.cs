@@ -24,5 +24,25 @@ namespace SSMSHelper.Forms
         {
             InitializeComponent();
         }
+
+        private void DialogWindow_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnRemove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

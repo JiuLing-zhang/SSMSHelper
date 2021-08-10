@@ -81,6 +81,8 @@
     </Compile>
     <Compile Include="MainCommand.cs" />
     <Compile Include="MainCommandPackage.cs" />
+    <Compile Include="ViewModel\FmAboutViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="VSPackage.resx">

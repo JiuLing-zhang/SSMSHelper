@@ -15,11 +15,9 @@ namespace SSMSHelper
     /// </summary>
     internal sealed class MainCommand
     {
-        /// <summary>
-        /// Command ID.
-        /// </summary>
-        public const int CommandId = 0x0100;
 
+        public const int DocumentSignId = 0x0100;
+        public const int AboutId = 0x0200;
         /// <summary>
         /// Command menu group (command set GUID).
         /// </summary>
@@ -41,9 +39,15 @@ namespace SSMSHelper
             this.package = package ?? throw new ArgumentNullException(nameof(package));
             commandService = commandService ?? throw new ArgumentNullException(nameof(commandService));
 
-            var menuCommandID = new CommandID(CommandSet, CommandId);
-            var menuItem = new MenuCommand(this.Execute, menuCommandID);
-            commandService.AddCommand(menuItem);
+            //文档背景色设置
+            var documentSignCommandId = new CommandID(CommandSet, DocumentSignId);
+            var documentSignMenuItem = new MenuCommand(this.DocumentSignDo, documentSignCommandId);
+            commandService.AddCommand(documentSignMenuItem);
+
+            //关于
+            var aboutCommandId = new CommandID(CommandSet, AboutId);
+            var aboutMenuItem = new MenuCommand(this.AboutDo, aboutCommandId);
+            commandService.AddCommand(aboutMenuItem);
         }
 
         /// <summary>
@@ -87,26 +91,32 @@ namespace SSMSHelper
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Event args.</param>
-        private void Execute(object sender, EventArgs e)
+        private void DocumentSignDo(object sender, EventArgs e)
         {
-            ThreadHelper.ThrowIfNotOnUIThread();
-            string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
-            string title = "Bingo!!!";
+            // ThreadHelper.ThrowIfNotOnUIThread();
+            // string message = string.Format(CultureInfo.CurrentCulture, "Inside {0}.MenuItemCallback()", this.GetType().FullName);
+            // string title = "Bingo!!!";
+            //
+            // // Show a message box to prove we were here
+            // VsShellUtilities.ShowMessageBox(
+            //     this.package,
+            //     message,
+            //     title,
+            //     OLEMSGICON.OLEMSGICON_INFO,
+            //     OLEMSGBUTTON.OLEMSGBUTTON_OK,
+            //     OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            //
+            // var a = new FmSetting();
+            // a.ShowModal();
 
-            // Show a message box to prove we were here
-            VsShellUtilities.ShowMessageBox(
-                this.package,
-                message,
-                title,
-                OLEMSGICON.OLEMSGICON_INFO,
-                OLEMSGBUTTON.OLEMSGBUTTON_OK,
-                OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            var fmSetting = new FmSetting();
+            fmSetting.ShowModal();
+        }
 
-            var a = new FmSetting();
-            a.ShowModal();
-
-            var b = new FmAbout();
-            b.ShowDialog();
+        private void AboutDo(object sender, EventArgs e)
+        {
+            var fmAbout = new FmAbout();
+            fmAbout.ShowModal();
         }
     }
 }

@@ -5,12 +5,66 @@
               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
               xmlns:local="clr-namespace:SSMSHelper.Forms"
               xmlns:platformUi="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
-              mc:Ignorable="d" 
-              WindowStartupLocation="CenterOwner"
+              mc:Ignorable="d"  
               SizeToContent="WidthAndHeight"
               ResizeMode="NoResize"
-              d:DesignHeight="250" d:DesignWidth="200">
-    <Grid>
-        <TextBlock>about</TextBlock>
+              d:DesignHeight="250" d:DesignWidth="200"
+              ShowInTaskbar="False" 
+              Title="AboutWindow" Height="300" Width="450"
+              WindowStyle="None"
+              Background="Transparent"
+              BorderThickness="24"
+              AllowsTransparency="True"
+              WindowStartupLocation="CenterOwner" 
+              MouseDown="DialogWindow_MouseDown">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="24"  Direction="90" ShadowDepth="3"/>
+    </Window.Effect>
+
+    <Window.Resources>
+        <Style TargetType="Hyperlink">
+            <Setter Property="TextBlock.TextDecorations" Value="{x:Null}"></Setter>
+        </Style>
+        <Style x:Key="ChangeButtonIsMouseOver" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" Background="{DynamicResource AboutBackground}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.5" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#3F3F3F">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78*"></RowDefinition>
+            <RowDefinition Height="22*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <StackPanel Orientation="Vertical" Margin="10">
+                <TextBlock Foreground="#E6E6E6" Margin="0,10,0,0" FontSize="22"  TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">SSMS辅助工具</TextBlock>
+                <TextBlock Foreground="#E6E6E6" Text="{Binding Version,Mode=OneWay}"  FontSize="15" Margin="0,5,0,0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="#E6E6E6" Text="{Binding UpdateMessage,Mode=OneWay}"  FontSize="13" Margin="0,28,0,0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <Button Name="BtnCheckUpdate" Click="BtnCheckUpdate_Click" Width="55" Height="25" FontSize="13" Margin="0,2,0,0" Foreground="#E6E6E6" Background="Transparent" Style="{StaticResource ChangeButtonIsMouseOver}">
+                    检查更新
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1"  >
+            <Border   BorderThickness="0,1,0,0"/>
+            <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
+                <TextBlock Foreground="#E6E6E6" FontSize="15" Margin="0,15,0,0">作者：九零</TextBlock>
+                <Button Foreground="#E6E6E6" Name="BtnClose" Click="BtnClose_Click"   FontSize="20" Margin="165,12,0,0"  Style="{StaticResource ChangeButtonIsMouseOver}">
+                    关闭
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </platformUi:DialogWindow>
