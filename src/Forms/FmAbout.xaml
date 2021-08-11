@@ -10,7 +10,7 @@
               ResizeMode="NoResize"
               d:DesignHeight="250" d:DesignWidth="200"
               ShowInTaskbar="False" 
-              Title="AboutWindow" Height="300" Width="450"
+              Title="AboutWindow" Height="230" Width="350"
               WindowStyle="None"
               Background="Transparent"
               BorderThickness="24"
@@ -44,24 +44,24 @@
     </Window.Resources>
     <Grid Background="#3F3F3F">
         <Grid.RowDefinitions>
-            <RowDefinition Height="78*"></RowDefinition>
-            <RowDefinition Height="22*"></RowDefinition>
+            <RowDefinition Height="150"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" >
             <StackPanel Orientation="Vertical" Margin="10">
-                <TextBlock Foreground="#E6E6E6" Margin="0,10,0,0" FontSize="22"  TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">SSMS辅助工具</TextBlock>
+                <TextBlock Foreground="#E6E6E6" Margin="0,5,0,0" FontSize="22"  TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">SSMS辅助工具</TextBlock>
                 <TextBlock Foreground="#E6E6E6" Text="{Binding Version,Mode=OneWay}"  FontSize="15" Margin="0,5,0,0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-                <TextBlock Foreground="#E6E6E6" Text="{Binding UpdateMessage,Mode=OneWay}"  FontSize="13" Margin="0,28,0,0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+                <TextBlock Foreground="#E6E6E6" Text="{Binding UpdateMessage,Mode=OneWay}"  FontSize="13" Margin="0,20,0,0" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
                 <Button Name="BtnCheckUpdate" Click="BtnCheckUpdate_Click" Width="55" Height="25" FontSize="13" Margin="0,2,0,0" Foreground="#E6E6E6" Background="Transparent" Style="{StaticResource ChangeButtonIsMouseOver}">
                     检查更新
                 </Button>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1"  >
-            <Border   BorderThickness="0,1,0,0"/>
+            <Border BorderThickness="0,1,0,0" BorderBrush="#E6E6E6"/>
             <StackPanel Orientation="Horizontal" Margin="10,10,10,10">
-                <TextBlock Foreground="#E6E6E6" FontSize="15" Margin="0,15,0,0">作者：九零</TextBlock>
-                <Button Foreground="#E6E6E6" Name="BtnClose" Click="BtnClose_Click"   FontSize="20" Margin="165,12,0,0"  Style="{StaticResource ChangeButtonIsMouseOver}">
+                <TextBlock Foreground="#E6E6E6" FontSize="15" Margin="0,10,0,0">作者：九零</TextBlock>
+                <Button Foreground="#E6E6E6" Name="BtnClose" Click="BtnClose_Click"   FontSize="20" Margin="165,7,0,0"  Style="{StaticResource ChangeButtonIsMouseOver}">
                     关闭
                 </Button>
             </StackPanel>

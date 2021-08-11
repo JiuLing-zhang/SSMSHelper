@@ -47,7 +47,7 @@ namespace SSMSHelper.Forms
 
         private void BtnCheckUpdate_Click(object sender, RoutedEventArgs e)
         {
-            // _myModel.UpdateMessage = "正在查找更新....";
+            _myModel.UpdateMessage = "抱歉，暂不支持该功能";
             // Task.Run(() =>
             // {
             //     try

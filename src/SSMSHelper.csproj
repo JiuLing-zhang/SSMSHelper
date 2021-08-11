@@ -73,6 +73,8 @@
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="16.11.2" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\GlobalArgs.cs" />
+    <Compile Include="Common\IniHelper.cs" />
     <Compile Include="Forms\FmAbout.xaml.cs">
       <DependentUpon>FmAbout.xaml</DependentUpon>
     </Compile>
@@ -81,7 +83,9 @@
     </Compile>
     <Compile Include="MainCommand.cs" />
     <Compile Include="MainCommandPackage.cs" />
+    <Compile Include="Model\AppConfigInfo.cs" />
     <Compile Include="ViewModel\FmAboutViewModel.cs" />
+    <Compile Include="ViewModel\FmDocumentFlagViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
   </ItemGroup>
   <ItemGroup>

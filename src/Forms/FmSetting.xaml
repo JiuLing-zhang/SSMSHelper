@@ -76,9 +76,9 @@
                 </Grid>
                 <Grid Grid.Row="2">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Foreground="#E6E6E6" FontSize="13" Width="80px"  VerticalAlignment="Center">标记位置</TextBlock>
-                        <RadioButton Foreground="#E6E6E6" VerticalAlignment="Center">标签</RadioButton>
-                        <RadioButton Foreground="#E6E6E6" VerticalAlignment="Center">编辑器背景</RadioButton>
+                        <TextBlock Foreground="#E6E6E6" FontSize="13" Width="80px"  VerticalAlignment="Center">标记区域</TextBlock>
+                        <RadioButton Foreground="#E6E6E6" GroupName="FlagArea" VerticalAlignment="Center" IsChecked="True">标签</RadioButton>
+                        <RadioButton Foreground="#E6E6E6" GroupName="FlagArea" VerticalAlignment="Center">编辑器背景</RadioButton>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="3">
