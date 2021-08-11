@@ -5,6 +5,7 @@ using System.ComponentModel.Design;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using SSMSHelper.ExtensionCommand;
 using SSMSHelper.Forms;
 using Task = System.Threading.Tasks.Task;
 
@@ -48,6 +49,11 @@ namespace SSMSHelper
             var aboutCommandId = new CommandID(CommandSet, AboutId);
             var aboutMenuItem = new MenuCommand(this.AboutDo, aboutCommandId);
             commandService.AddCommand(aboutMenuItem);
+
+            //扩展
+            new DocumentFlagExtension(ServiceProvider).Extension();
+
+
         }
 
         /// <summary>

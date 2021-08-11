@@ -75,6 +75,8 @@
   <ItemGroup>
     <Compile Include="Common\GlobalArgs.cs" />
     <Compile Include="Common\IniHelper.cs" />
+    <Compile Include="Common\MessageUtils.cs" />
+    <Compile Include="ExtensionCommand\DocumentFlagExtension.cs" />
     <Compile Include="Forms\FmAbout.xaml.cs">
       <DependentUpon>FmAbout.xaml</DependentUpon>
     </Compile>
@@ -84,6 +86,7 @@
     <Compile Include="MainCommand.cs" />
     <Compile Include="MainCommandPackage.cs" />
     <Compile Include="Model\AppConfigInfo.cs" />
+    <Compile Include="ViewModel\DocumentFlagViewModel.cs" />
     <Compile Include="ViewModel\FmAboutViewModel.cs" />
     <Compile Include="ViewModel\FmDocumentFlagViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

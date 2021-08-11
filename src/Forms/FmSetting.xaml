@@ -63,22 +63,22 @@
                 <Grid Grid.Row="0">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="#E6E6E6" FontSize="13" Width="80px" VerticalAlignment="Center">服务器地址</TextBlock>
-                        <TextBox Name="TxtServer" Width="140px" Height="22px" Margin="0,0,5,0"></TextBox>
+                        <TextBox Name="TxtServer" Width="140px" Height="22px" Margin="0,0,5,0" Text="192.168.1.1" ></TextBox>
                         <TextBlock Foreground="#E6E6E6" FontSize="13" VerticalAlignment="Center">例如：192.168.1.1</TextBlock>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="1">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="#E6E6E6" FontSize="13" Width="80px" VerticalAlignment="Center" >颜色(16进制)</TextBlock>
-                        <TextBox Name="TxtColor" Width="140px" Height="22px" Margin="0,0,5,0"></TextBox>
+                        <TextBox Name="TxtColor" Width="140px" Height="22px" Margin="0,0,5,0" Text="#FFFFFF" ></TextBox>
                         <TextBlock Foreground="#E6E6E6" FontSize="13" VerticalAlignment="Center">例如：#FFFFFF</TextBlock>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="2">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Foreground="#E6E6E6" FontSize="13" Width="80px"  VerticalAlignment="Center">标记区域</TextBlock>
-                        <RadioButton Foreground="#E6E6E6" GroupName="FlagArea" VerticalAlignment="Center" IsChecked="True">标签</RadioButton>
-                        <RadioButton Foreground="#E6E6E6" GroupName="FlagArea" VerticalAlignment="Center">编辑器背景</RadioButton>
+                        <RadioButton Foreground="#E6E6E6" Name="RdoLabel" GroupName="FlagArea" VerticalAlignment="Center" IsChecked="True">标签</RadioButton>
+                        <RadioButton Foreground="#E6E6E6" Name="RdoBackground" GroupName="FlagArea" VerticalAlignment="Center">背景</RadioButton>
                     </StackPanel>
                 </Grid>
                 <Grid Grid.Row="3">
@@ -92,14 +92,14 @@
             <Border BorderBrush="#FFFFFF" BorderThickness="1">
                 <StackPanel Margin="5">
                     <TextBlock FontWeight="Bold" Foreground="#E6E6E6" VerticalAlignment="Center">已配置的服务器</TextBlock>
-                    <ListBox Name="ListBoxSearchFolders" ItemsSource="{Binding}" Height="145" Background="#E6E6E6" Margin="0,5,0,0">
+                    <ListBox Name="ListBoxSearchFolders" ItemsSource="{Binding}" Height="145" Margin="0,5,0,0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Button Name="BtnRemove" Click="BtnRemove_Click"  Tag="{Binding }" ToolTip="删除" Width="14" Height="14" Background="Transparent" Margin="-3,0,3,0">
-
-                                    </Button>
-                                    <TextBlock Foreground="#E6E6E6" VerticalAlignment="Center" Text="{Binding }"></TextBlock>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Button Name="BtnRemove" Click="BtnRemove_Click"  Tag="{Binding Server}" ToolTip="删除" Foreground="Red" Background="Transparent" Margin="-3,0,3,0" Style="{StaticResource ChangeButtonIsMouseOver}">❌</Button>
+                                    <TextBlock  VerticalAlignment="Center" Text="{Binding Server}" Width="140px"></TextBlock>
+                                    <TextBlock  VerticalAlignment="Center" TextAlignment="Center" Text="{Binding FlagAreaString}" Width="35px" Background="{Binding BackColor}" ></TextBlock>
+                                    <TextBlock  VerticalAlignment="Center" Text="{Binding BackColor}" Width="60px" Background="{Binding BackColor}"></TextBlock>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

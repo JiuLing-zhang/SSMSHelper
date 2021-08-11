@@ -36,6 +36,7 @@ namespace SSMSHelper
     [ProvideMenuResource("Menus.ctmenu", 1)]
     [Guid(MainCommandPackage.PackageGuidString)]
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "pkgdef, VS and vsixmanifest are valid VS terms")]
+    [ProvideAutoLoad(UIContextGuids80.NoSolution, PackageAutoLoadFlags.BackgroundLoad)]
     public sealed class MainCommandPackage : AsyncPackage
     {
         /// <summary>
